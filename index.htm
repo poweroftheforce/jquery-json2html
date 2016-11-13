@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON 2 HTML</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="js/json2html.js"></script>
+</head>
+
+<body>
+	<h1>JSON 2 HTML output</h1>
+	<div id="my-div-one"></div>
+	<div id="my-div-two"></div>
+	<div id="my-div-three"></div>
+</body>
+</html>
+<script>
+
+// sample #1
+var html1 = [{
+	node: "p",
+	html: 'Hello World!'
+}];
+$( '#my-div-one' ).json2HTML( html1 );
+
+// sample #2
+var html2 = [{
+	node: "p",
+	css: {
+		color: 'red'
+	},
+	html: 'Click the link: ',
+	append: [{
+		node: 'a',
+		attr: {
+			target: '_blank'
+		},
+		href: 'http://www.google.com',
+		html: 'Go to Google'
+	}]
+}];
+$( '#my-div-two' ).json2HTML( html2 );
+
+// sample #3
+var html3 = [{
+	node: "p",
+	css: {
+		cursor: 'pointer'
+	},
+	data: {
+		prop1: 'foo',
+		prop2: 'bar'
+	},
+	html: 'Click me to read `prop1` and `prop2` in console.',
+	click: function( el ) {
+		console.log( 'prop1 = ' + $( this ).data( 'prop1' ) );
+		console.log( 'prop2 = ' + $( this ).data( 'prop2' ) );
+	}
+}];
+$( '#my-div-three' ).json2HTML( html3 );
+
+
+</script>

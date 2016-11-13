@@ -1,0 +1,23 @@
+{
+    "name": "json2html",
+    "version": "1.0.0",
+    "description": "Small utility originally written in 2009 that creates HTML from a JSON structure",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Christopher D Engle",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/poweroftheforce/json2html-jquery.git"
+    },
+    "bugs": {
+        "url": "https://github.com/poweroftheforce/json2html-jquery/issues"
+    },
+    "homepage": "https://github.com/poweroftheforce/json2html-jquery#readme",
+    "dependencies": {
+        "nodemon": "^1.11.0",
+        "express": "*"
+    }
+}
