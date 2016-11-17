@@ -37,7 +37,7 @@
 						var val = obj[ i ][ prop ];
 						switch ( prop ) {
 							case 'eval': {
-								eval( val );
+								//eval( val );
 								break;
 							}
 							case 'node': {
