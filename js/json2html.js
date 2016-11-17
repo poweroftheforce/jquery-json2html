@@ -25,6 +25,7 @@
 					];
 					$('body').json2HTML(html);
 	*/
+	var node = null;
 	$.fn.json2HTML = function( obj ) {
 		var defaults = {};
 		var options = $.extend( defaults, options );
@@ -33,59 +34,62 @@
 			function json2HTML( obj ) {
 				for ( var i=0; i<obj.length; i++ ) {
 					for ( var prop in obj[ i ] ) {
+						var val = obj[ i ][ prop ];
 						switch ( prop ) {
 							case 'eval': {
-								eval( obj[ i ][ prop ] );
+								eval( val );
 								break;
 							}
 							case 'node': {
-								var node = document.createElement( obj[ i ][ prop ] );
+								node = document.createElement( val );
 								$( previousElement ).append( node );
 								break;
 							}
 							case 'append': {
 								previousElement = node;
-								json2HTML( obj[ i ][ prop ] );
+								json2HTML( val );
 								break;
 							}
 							case 'data': {
-								var data = obj[ i ][ prop ];
+								var data = val;
 								for ( prop in data ) {
 									$( node ).data( prop, data[ prop ] );
 								}
 								break;
 							}
 							case 'id': {
-								$( node ).attr( 'id', obj[ i ][ prop ] );
-								break;
-							}
-							case 'if': {
-								eval( obj[ i ][ prop ] );
+								$( node ).attr( 'id', val );
 								break;
 							}
 							case 'href': {
-								$( node ).attr( 'href', obj[ i ][ prop ] );
+								$( node ).attr( 'href', val );
 								break;
 							}
-							case 'return': {
-								return eval( obj[ i ][ prop ] );
+							case 'fn':
+							case 'function': {
+								if ( val.callback ) {
+									var params		= val.params,
+										args	= Object.keys( params ).map(function( key ) {
+														return params[ key ];
+													});
+									val.callback.apply( node, args );
+								}
 								break;
 							}
 							case 'addClass':
 							case 'html':
 							case 'attr':
 							case 'css': {
-								eval( '$(node).' + prop + '(obj[i][prop]);' );
+								$( node )[ prop ]( val );
 								break;
 							}
 							/* default - click, mouseover, my_plugin */
 							default: {
-								eval( '$(node).' + prop + '(' + obj[ i ][ prop ] + ');' );
+								$( node )[ prop ]( val );
 								break;
 							}
 						}
 					}
-
 				}
 				if ( node ) {
 					previousElement = node.parentNode.parentNode;

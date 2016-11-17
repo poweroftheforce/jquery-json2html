@@ -1,4 +1,4 @@
-# [json2HTML - jQuery version 1.0](https://github.com/poweroftheforce/jquery-json2html)
+# [jQuery.json2HTML version 1.0](https://github.com/poweroftheforce/jquery-json2html)
 
 A jQuery plugin for transforming a JavaScript array of objects into HTML.
 
@@ -14,7 +14,7 @@ note: The json2HTML jQuery plugin does not require node or anything else and can
 
 ### Example Usage
 
-```jsx
+```javascript
 var html = [{
 	nodeName: 'h1',
 	html: 'Hello World'
