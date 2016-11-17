@@ -7,7 +7,7 @@ A jQuery plugin for transforming a JavaScript array of objects into HTML.
 ```sh
 $ cd jquery-json2html
 $ npm install -d
-$ node app
+$ nodemon
 ```
 
 note: The json2HTML jQuery plugin does not require node or anything else and can be downloaded by itself from here [https://github.com/poweroftheforce/jquery-json2html/blob/master/js/json2html.js](https://github.com/poweroftheforce/jquery-json2html/blob/master/js/json2html.js)

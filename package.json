@@ -10,12 +10,12 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/poweroftheforce/json2html-jquery.git"
+        "url": "git+https://github.com/poweroftheforce/jquery-json2html.git"
     },
     "bugs": {
-        "url": "https://github.com/poweroftheforce/json2html-jquery/issues"
+        "url": "https://github.com/poweroftheforce/jquery-json2html/issues"
     },
-    "homepage": "https://github.com/poweroftheforce/json2html-jquery#readme",
+    "homepage": "https://github.com/poweroftheforce/jquery-json2html#readme",
     "dependencies": {
         "nodemon": "^1.11.0",
         "express": "*"
